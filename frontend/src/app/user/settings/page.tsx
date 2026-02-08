@@ -2,14 +2,20 @@
 
 import { useEffect, useState } from 'react';
 import SettingsForm from '@/components/user/settings-form';
+import { User } from '@/types';
 
 export default function SettingsPage() {
-  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const [user, setUser] = useState<User | undefined>(undefined);
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
     if (userData) {
-      setUser(JSON.parse(userData));
+      const parsedUser = JSON.parse(userData);
+      // Ensure the user object has an id field
+      if (parsedUser && !parsedUser.id && parsedUser.email) {
+        parsedUser.id = parsedUser.email; // Use email as fallback id
+      }
+      setUser(parsedUser);
     }
   }, []);
 

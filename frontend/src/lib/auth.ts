@@ -5,7 +5,7 @@ import { createAuthClient } from 'better-auth/client';
 
 // Initialize the auth client
 export const authClient = createAuthClient({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:8002',
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL || 'https://alishba51-todochatbot.hf.space',
 });
 
 // Export auth functions

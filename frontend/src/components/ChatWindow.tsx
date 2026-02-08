@@ -125,10 +125,10 @@ export default function ChatWindow({
       <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4">
         {displayedMessages.length === 0 ? (
           <div className="text-center text-gray-500 dark:text-gray-400 mt-8">
-            <p className="text-sm">👋 Hi! I&apos;m your AI assistant.</p>
+            <p className="text-sm">👋 Hi! I am your AI assistant.</p>
             <p className="text-sm mt-2">Ask me to manage your tasks!</p>
             <p className="text-xs mt-4 text-gray-400">
-              Try: &quot;Add task: Buy groceries&quot; or &quot;Show all my tasks&quot;
+              Try: &apos; Add task: Buy groceries &apos; or &apos; Show all my tasks &apos;
             </p>
           </div>
         ) : (

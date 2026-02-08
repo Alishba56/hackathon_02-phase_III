@@ -4,7 +4,7 @@ import type { ChatRequest, ChatResponse } from '@/types/chat';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
   ? `${process.env.NEXT_PUBLIC_API_URL}/api`
-  : 'http://localhost:8002/api';
+  : 'https://alishba51-todochatbot.hf.space/api';
 
 class ApiClient {
   private async request<T>(

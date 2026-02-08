@@ -73,6 +73,7 @@ export default function ChatWindow({
         setDisplayedMessages(messages);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
   // Auto-scroll to bottom when displayed messages change

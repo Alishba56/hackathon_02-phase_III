@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus, Sparkles } from 'lucide-react';
 import { TaskList } from '@/components/task/task-list';
@@ -40,13 +40,7 @@ export default function DashboardPage() {
   }, [conversationId]);
 
   // Load conversation history when chat opens
-  useEffect(() => {
-    if (isChatOpen && conversationId && chatMessages.length === 0) {
-      loadConversationHistory();
-    }
-  }, [isChatOpen, conversationId]);
-
-  const loadConversationHistory = async () => {
+  const loadConversationHistory = useCallback(async () => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8002';
       const token = localStorage.getItem('token');
@@ -84,7 +78,13 @@ export default function DashboardPage() {
     } catch (error) {
       console.error('Error loading conversation history:', error);
     }
-  };
+  }, [conversationId]);
+
+  useEffect(() => {
+    if (isChatOpen && conversationId && chatMessages.length === 0) {
+      loadConversationHistory();
+    }
+  }, [isChatOpen, conversationId, chatMessages.length, loadConversationHistory]);
 
   // Check authentication on mount
   useEffect(() => {

@@ -128,7 +128,7 @@ export default function ChatWindow({
             <p className="text-sm">👋 Hi! I am your AI assistant.</p>
             <p className="text-sm mt-2">Ask me to manage your tasks!</p>
             <p className="text-xs mt-4 text-gray-400">
-              Try: &apos; Add task: Buy groceries &apos; or &apos; Show all my tasks &apos;
+              Try: Add task: Buy groceries or  Show all my tasks 
             </p>
           </div>
         ) : (
